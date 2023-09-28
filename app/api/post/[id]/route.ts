@@ -76,5 +76,3 @@ export const DELETE = async (
     await prisma.$disconnect();
   }
 };
-//6515ad14490bcb42e8ce8df5
-//6515a770490bcb42e8ce8dee
