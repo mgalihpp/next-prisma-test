@@ -1,3 +1,5 @@
+"use server"
+
 import { prisma } from "@/prisma";
 import { connectDB } from "@/utils";
 import { NextResponse } from "next/server";
@@ -13,7 +15,6 @@ export const GET = async (
     });
     return NextResponse.json({ post }, { status: 200 });
   } catch (error: any) {
-    console.error(error);
     return NextResponse.json({ error: error.message }, { status: 400 });
   } finally {
     await prisma.$disconnect();
