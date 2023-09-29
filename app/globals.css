@@ -71,18 +71,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-black text-foreground;
+    @apply bg-white text-foreground;
   }
   li {
     @apply list-none flex justify-center items-center mx-auto
   }
-}
 
-.line-group {
-  background: black; 
-  position: absolute;
-  margin-top: 25px;
-  margin-left: 42.5px;
-  height: 75%; 
-  width: 2px;
+  .line-group {
+    @apply bg-slate-300 absolute my-6 ml-10 min-[300px]:h-[68%] min-[400px]:h-[73%] min-[500px]:h-[78%] w-[2px] md:h-[75%]
+  }
 }
