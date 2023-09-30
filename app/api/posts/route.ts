@@ -1,3 +1,5 @@
+"use server"
+
 import { prisma } from "@/prisma";
 import { connectDB } from "@/utils";
 import { NextResponse } from "next/server";
@@ -5,7 +7,7 @@ import { NextResponse } from "next/server";
 export const GET = async (req: Request) => {
   try {
     await connectDB();
-    const posts = await prisma.post.findMany();
+    const posts = await prisma.post.findMany({include: { comment: true, User: { select: { id: true, name: true }},  _count: true }});
     return NextResponse.json({ posts }, { status: 200 });
   } catch (error: any) {
     console.error(error);
@@ -21,7 +23,7 @@ export const POST = async (req: Request) => {
 
     if (!title || !body || !userId) {
       return NextResponse.json(
-        { message: "invalid validare" },
+        { message: "invalid validate" },
         { status: 400 }
       );
     }

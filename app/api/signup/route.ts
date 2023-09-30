@@ -1,3 +1,5 @@
+"use server"
+
 import { prisma } from "@/prisma";
 import { connectDB } from "@/utils";
 import { NextResponse } from "next/server";
